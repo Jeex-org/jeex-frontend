@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Room } from "livekit-client";
 import { Article } from "@/components/Article/Article";
-import { environments } from "@/app/livekit/api/constants";
+import { environments } from "@/features/livekit/constants";
 import { RoomConnector } from "@/features/rooms/RoomConnector/RoomConnector";
 import { Loader } from "@/components/Loader/Loader";
 
@@ -44,7 +44,7 @@ export const RoomLoader: FC<RoomLoaderProps> = () => {
   }, [connectToRoom, roomName]);
 
   return (
-    <Article title={`Room ${roomName}`} backUrl="/rooms">
+    <Article title={`Room ${roomName}`} backUrl="/rooms" isProtected>
       {token === "" ? (
         <Loader title="Getting token..." />
       ) : (

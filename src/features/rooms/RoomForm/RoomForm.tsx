@@ -1,5 +1,5 @@
 "use client";
-import { FC, useCallback, useMemo, useState } from "react";
+import { ChangeEvent, FC, useCallback, useMemo, useState } from "react";
 import cn from "classnames";
 import { customAlphabet } from "nanoid";
 import { nolookalikes } from "nanoid-dictionary";
@@ -9,7 +9,7 @@ import { Button } from "@radix-ui/themes";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { NewRoom } from "../types";
 import formStyles from "@/styles/form.module.scss";
-import { Input } from "@/components/Input/Input";
+import Input from "@/components/Input/Input";
 
 type RoomFormProps = {
   className?: string;

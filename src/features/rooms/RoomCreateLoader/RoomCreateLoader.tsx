@@ -11,7 +11,7 @@ export const RoomCreateLoader: FC<RoomCreateLoaderProps> = () => {
   const [newRoom, setNewRoom] = useState<NewRoom | null>(null);
 
   return (
-    <Article title="Create new room" backUrl="/rooms">
+    <Article title="Create new room" backUrl="/rooms" isProtected>
       {!newRoom ? (
         <RoomForm onSubmit={(room) => setNewRoom(room)} />
       ) : (

@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import { LiveKitRoom, RoomAudioRenderer } from "@livekit/components-react";
 import { RoomOnline } from "@/features/rooms/RoomOnline/RoomOnline";
 import { Article } from "@/components/Article/Article";
-import { environments } from "@/app/livekit/api/constants";
+import { environments } from "@/features/livekit/constants";
 
 export default function RoomOnlinePage() {
   const { room: roomName } = useParams();

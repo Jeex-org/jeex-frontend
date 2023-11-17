@@ -1,10 +1,11 @@
 "use client";
 import { FC, PropsWithChildren, ReactNode } from "react";
+import Link from "next/link";
 import cn from "classnames";
 import { Button } from "@radix-ui/themes";
 import { ArrowCircleLeft } from "@phosphor-icons/react";
+import { ProtectContent } from "../ProtectContent/ProtectContent";
 import styles from "./Article.module.scss";
-import Link from "next/link";
 
 type ArticleProps = {
   className?: string;
@@ -14,6 +15,7 @@ type ArticleProps = {
   buttonUrl?: string;
   buttonText?: string;
   beforeArticle?: ReactNode;
+  isProtected?: boolean;
   onClick?: () => void;
 };
 
@@ -26,6 +28,7 @@ export const Article: FC<PropsWithChildren<ArticleProps>> = ({
   buttonText,
   beforeArticle,
   children,
+  isProtected,
   onClick,
 }) => {
   return (
@@ -61,7 +64,9 @@ export const Article: FC<PropsWithChildren<ArticleProps>> = ({
           )}
         </header>
       )}
-      <section className={styles.content}>{children}</section>
+      <section className={styles.content}>
+        {isProtected ? <ProtectContent>{children}</ProtectContent> : children}
+      </section>
     </article>
   );
 };
